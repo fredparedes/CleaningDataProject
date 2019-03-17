@@ -69,8 +69,7 @@ names(Subject_Activity) = c("activitynumber", "activityname")
 # combine the activity labels with the data
 Complete_Test_Train <- cbind(X_Test_Train_data_all, Subject_Activity)
 # output to csv
-write.csv(Complete_Test_Train, "/Users/fredparedes/Documents/Data Science Course/Class/CleaningDataProject/Tidy_Complete_HAR.csv")
-
+write.table(Complete_Test_Train, "/Users/fredparedes/Documents/Data Science Course/Class/CleaningDataProject/Tidy_Complete_HAR.txt", row.name = FALSE)
 
 # Extracts only the measurements on the mean into independent tidy data set 
 # with the average of each variable for each activity and each subject.
@@ -78,7 +77,7 @@ Test_Train_Mean <- select(Complete_Test_Train, contains("mean"))
 Test_Train_Mean_Subject<- cbind(Test_Train_Mean,X_Test_Train_subject_all)
 Test_Train_Mean_Subject_Activity <- cbind(Test_Train_Mean_Subject, Subject_Activity)
 # output to csv
-write.csv(Test_Train_Mean_Subject_Activity, "/Users/fredparedes/Documents/Data Science Course/Class/CleaningDataProject/Tidy_Mean_Subject_Activity.csv")
+write.table(Test_Train_Mean_Subject_Activity, "/Users/fredparedes/Documents/Data Science Course/Class/CleaningDataProject/Tidy_Mean_Subject_Activity.txt", row.name = FALSE)
 
 # clean up
 rm(Subject_Activity)
